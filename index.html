@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Web Proxy</title>
+<title>Web Proxy</title>
 </head>
 <body>
-  <h1>Web Proxy</h1>
-  <form action="/" method="get">
-    <input type="text" name="url" placeholder="Enter a URL">
-    <input type="submit" value="Go">
-  </form>
-  <div id="content"></div>
-</body>
-</html>
+<h1>Web Proxy</h1>
+<form action="/" method="get">
+<input type="text" name="url" placeholder="Enter a URL">
+<input type="submit" value="Go">
+</form>
 <script>
-  function makeRequest(url) {
+function get(url) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
   xhr.onload = function() {
     if (xhr.status === 200) {
-      var content = xhr.responseText;
-      $("#content").html(content);
+      var response = xhr.responseText;
+      document.getElementById("content").innerHTML = response;
     } else {
-      $("#content").html("Error: " + xhr.status);
+      document.getElementById("content").innerHTML = "Error: " + xhr.status;
     }
   };
   xhr.send();
 }
-
-$(document).ready(function() {
-  <span class="math-inline">\("\#submit"\)\.click\(function\(\) \{
-makeRequest\(</span>("#url").val());
-  });
-});
 </script>
+<div id="content"></div>
+</body>
+</html>
