@@ -1,51 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot</title>
+  <title>Chat</title>
 </head>
 <body>
-  <h1>Chatbot</h1>
-  <form action="/chatbot" method="post">
-    <input type="text" name="message" placeholder="Enter your message">
-    <input type="submit" value="Send">
-  </form>
+  <h1>Chat</h1>
   <div id="messages"></div>
+  <input type="text" id="message">
+  <button id="send">Send</button>
+  <script>
+    var messages = document.getElementById("messages");
+    var messageInput = document.getElementById("message");
+    var sendButton = document.getElementById("send");
+    
+    sendButton.addEventListener("click", function() {
+      var message = messageInput.value;
+      messages.innerHTML += "<p>" + message + "</p>";
+      messageInput.value = "";
+    });
+  </script>
 </body>
 </html>
-<script>
-  // Get the input field and the messages div
-var input = document.getElementById("message");
-var messages = document.getElementById("messages");
-
-// When the user submits a message, add it to the messages div
-input.addEventListener("submit", function() {
-  var message = input.value;
-  messages.innerHTML += "<p>" + message + "</p>";
-  // Get the chatbot's response
-  var response = getChatbotResponse(message);
-  // Add the response to the messages div
-  messages.innerHTML += "<p>" + response + "</p>";
-});
-
-// This function gets the chatbot's response to a message
-function getChatbotResponse(message) {
-  // Hardcode the chatbot's responses here
-  var responses = {
-    "hello": "Hello there!",
-    "how are you": "I'm doing well, thanks for asking!",
-    "what is your name": "My name is Bard, a large language model from Google AI."
-  };
-
-  // Get the response for the given message
-  var response = responses[message];
-
-  // If there is no response for the message, return a default message
-  if (!response) {
-    response = "I don't understand your question.";
-  }
-
-  return response;
-}
-  </script>
