@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Landing Page</title>
+  <title>Live Chat</title>
 </head>
 <body>
-  <header>
-    <h1>My Landing Page</h1>
-  </header>
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I'm a web developer who loves to create beautiful and functional websites.</p>
-      <p>I'm passionate about using technology to solve problems and make people's lives easier.</p>
-    </section>
-    <section>
-      <h2>My Work</h2>
-      <p>I've worked on a variety of projects, including websites for businesses, nonprofits, and individuals.</p>
-      <p>I'm proficient in HTML, CSS, and JavaScript, and I'm always learning new technologies.</p>
-    </section>
-    <section>
-      <h2>Contact Me</h2>
-      <p>If you'd like to get in touch, you can email me at [email protected] or find me on social media.</p>
-    </section>
-  </main>
-  <footer>
-    <p>Copyright &copy; 2023 My Landing Page</p>
-  </footer>
+  <h1>Live Chat</h1>
+  <div id="messages"></div>
+  <input type="text" id="message">
+  <button id="send">Send</button>
+  <script>
+    var messages = document.getElementById("messages");
+    var messageInput = document.getElementById("message");
+    var sendButton = document.getElementById("send");
+    
+    sendButton.addEventListener("click", function() {
+      var message = messageInput.value;
+      messages.innerHTML += "<p>" + message + "</p>";
+      messageInput.value = "";
+    });
+  </script>
 </body>
 </html>
