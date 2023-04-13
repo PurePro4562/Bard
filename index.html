@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: monospace;
-    }
-    button {
-      background-image: linear-gradient(to right, lime, aqua);
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-  </style>
+  <title>Web Proxy</title>
 </head>
 <body>
-  <h1>My Website</h1>
-  <button>Click me!</button>
+  <h1>Web Proxy</h1>
+  <form action="/" method="get">
+    <input type="text" name="url" placeholder="Enter a URL">
+    <input type="submit" value="Go">
+  </form>
+  <div id="content"></div>
 </body>
 </html>
+<script>
+  function makeRequest(url) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      var content = xhr.responseText;
+      $("#content").html(content);
+    } else {
+      $("#content").html("Error: " + xhr.status);
+    }
+  };
+  xhr.send();
+}
+
+$(document).ready(function() {
+  <span class="math-inline">\("\#submit"\)\.click\(function\(\) \{
+makeRequest\(</span>("#url").val());
+  });
+});
+</script>
